@@ -11,6 +11,14 @@ public aspect Logger {
     after() : success() {
     	System.out.println("**** User created ****");
     }
+    /*pointcut retirarDinero() : call(* moneyWith*());
+    after():retirarDinero(){
+    	int hora=cal.get(cal.HOUR_OF_DAY);
+    	int min=cal.get(cal.MINUTE);
+    	int seg=cal.get(cal.SECOND);
+    	System.out.println("***retirar dinero***");
+    	System.out.println(hora+":"+min+":"+seg);
+    }*/
 }
 
 
