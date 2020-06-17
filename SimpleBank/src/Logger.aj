@@ -1,10 +1,8 @@
+import java.io.File;
+import java.util.Calendar;
 
-class Aspectos_guia{
-	//Esta clase debe ser eliminada
-}
 
-/*
-public aspect Log {
+public aspect Logger {
 
     File file = new File("log.txt");
     Calendar cal = Calendar.getInstance();
@@ -16,14 +14,34 @@ public aspect Log {
 }
 
 
-public aspect Logger {
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+public aspect Logger {
+	
     pointcut success() : call(* create*(..) );
     after() : success() {
     //Aspecto ejemplo: solo muestra este mensaje después de haber creado un usuario 
     	System.out.println("**** User created ****");
     }
     
+    
+    
 }
-
 */
