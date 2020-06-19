@@ -1,80 +1,54 @@
 import java.io.File;
 import java.util.Calendar;
+import java.util.Date;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.io.BufferedWriter; 
 
 public aspect Logger {
 
     File file = new File("log.txt");
-    Calendar cal;
+    Date cal;
     //Aspecto: Deben hacer los puntos de cortes (pointcut) para crear un log con los tipos de transacciones realizadas.
     pointcut success() : call(* create*(..) );
     after() : success() {
     	System.out.println("**** User created ****");
     }
     pointcut retirarDinero() : call(* moneyWith*());
+    before():retirarDinero(){
+    	guardarArchivoeImprimir("Inicio de retiro dinero");
+    }
     after():retirarDinero(){
-    	String tiempo = conseguirTiempo();
-    	System.out.println("***retirar dinero***");
-    	System.out.println(tiempo);
-    	try(BufferedWriter bw = new BufferedWriter(new FileWriter(file,true))){
-    		bw.append("Retirar Dinero "+ tiempo + "\n");
-    	}catch(IOException ex) {
-    		System.out.println(ex.getMessage());
-    	}
+    	guardarArchivoeImprimir("Fin de retiro dinero");
+    }
+    pointcut errorUser() : call(* errorUsuario*());
+    after():errorUser(){
+    	guardarArchivoeImprimir("OcurriÃ³ un error al buscar al usuario.");
     }
     
     pointcut depositarDinero() : call(* moneyMakeTransac*());
+    before():depositarDinero(){
+    	guardarArchivoeImprimir("Inicio de deposito de dinero.");
+    }
     after():depositarDinero(){
-    	String hora = conseguirTiempo();
-    	System.out.println("***depositar dinero***");
-    	System.out.println(hora);
+    	guardarArchivoeImprimir("Fin de deposito de dinero.");
+    }
+    
+    private String conseguirTiempo() {
+    	cal = Calendar.getInstance().getTime();
+    	//Si en el futuro quiere agregar la fecha, se antepone a HH dd-MM-yyyy
+    	SimpleDateFormat formateo = new SimpleDateFormat("HH:mm:ss");
+    	return formateo.format(cal);
+    }
+    private void guardarArchivoeImprimir(String mensaje) {
+    	String tiempo = conseguirTiempo();	
+    	System.out.println("***"+tiempo+" "+mensaje+"***");
+    	
     	try(BufferedWriter bw = new BufferedWriter(new FileWriter(file,true))){
-    		bw.append("Depositar Dinero "+ hora+"\n");
+    		bw.append(tiempo + " --- " + mensaje+"\n");
     	}catch(IOException ex) {
     		System.out.println(ex.getMessage());
     	}
     }
-    
-    private String conseguirTiempo() {
-    	cal = Calendar.getInstance();
-    	int hora=cal.get(cal.HOUR_OF_DAY);
-    	int min=cal.get(cal.MINUTE);
-    	int seg=cal.get(cal.SECOND);
-    	return hora+":"+min+":"+seg;
-    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-public aspect Logger {
-	
-    pointcut success() : call(* create*(..) );
-    after() : success() {
-    //Aspecto ejemplo: solo muestra este mensaje después de haber creado un usuario 
-    	System.out.println("**** User created ****");
-    }
-    
-    
-    
-}
-*/

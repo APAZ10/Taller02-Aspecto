@@ -79,12 +79,23 @@ public class Bank {
     public static void moneyMakeTransaction(){
         int id = Integer.valueOf(readConsole("Key: "));
         double money = Double.valueOf(readConsole("Dinero a depositar: "));
-        users.get(id-1).setMoney(users.get(id-1).getMoney() + money);
+        try {
+        	users.get(id-1).setMoney(users.get(id-1).getMoney() + money);
+        }
+        catch(IndexOutOfBoundsException e) {
+        	errorUsuario();
+        }
+        
     }
     public static void moneyWithdrawal(){
         int id = Integer.valueOf(readConsole("Key: "));
         double money = Double.valueOf(readConsole("Dinero a retirar: "));
-        users.get(id-1).setMoney(users.get(id-1).getMoney() - money);
+        try {
+        	users.get(id-1).setMoney(users.get(id-1).getMoney() - money);
+        }
+        catch(IndexOutOfBoundsException e) {
+        	errorUsuario();
+        }
     }
     public static void viewUsers(){
         System.out.println("------------------------------------");
@@ -93,5 +104,5 @@ public class Bank {
         }
         System.out.println("------------------------------------");
     }
-    
+    private static void errorUsuario() {}
 }

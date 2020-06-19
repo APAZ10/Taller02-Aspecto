@@ -1,7 +1,18 @@
-Retirar Dinero 9:11:13
-Retirar Dinero 9:11:18
-Retirar Dinero 9:11:22
-Retirar Dinero 9:11:39
-Retirar Dinero 9:11:41
-Retirar Dinero 17:33:40
-Depositar Dinero 17:34:48
+21:09:03 --- Se retiró dinero
+21:09:10 --- Se retiró dinero
+21:11:26 --- Se retiró dinero
+21:13:05 --- Se retiró dinero
+21:13:12 --- Se retiró dinero
+21:16:23 --- Se retiró dinero
+21:16:26 --- Ocurrió un error al buscar al usuario.
+21:16:26 --- Se retiró dinero
+21:18:23 --- Se retiró dinero
+21:18:23 --- Se retiró dinero
+21:24:27 --- Inicio de retiro dinero
+21:24:33 --- Fin de retiró dinero
+21:24:48 --- Inicio de retiro dinero
+21:24:51 --- Ocurrió un error al buscar al usuario.
+21:24:51 --- Fin de retiró dinero
+21:26:05 --- Inicio de retiro dinero
+21:26:07 --- Ocurrió un error al buscar al usuario.
+21:26:07 --- Fin de retiró dinero
