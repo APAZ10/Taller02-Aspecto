@@ -6,3 +6,17 @@ Aspecto de ejemplo:
 
 Salida:
 ![Captura](https://user-images.githubusercontent.com/56801982/84931338-46f1f100-b098-11ea-96a5-ce6d9d66c668.JPG)
+
+
+--Nuestro aspecto--
+
+Aspecto:
+![Nuestro Aspecto](https://i.imgur.com/izhPxS6.png)
+
+
+Salida:
+![Nuestro Aspecto Salida](https://i.imgur.com/k93s6gG.jpg)
+
+Log:
+
+![Nuestro Aspecto Log](https://i.imgur.com/TgXqRPZ.png)
